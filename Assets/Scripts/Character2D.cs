@@ -44,17 +44,9 @@ public class Character2D : MonoBehaviour
         float y = Input.GetAxisRaw("Vertical");
 
         m_rb.velocity = new Vector3(x * m_speed, m_rb.velocity.y, m_rb.velocity.z);
-        FireDirection = new Vector3(0.0f, y, x).normalized;
-        
-        //2D Turn Around
-        if(x < 0)
-        {
-            transform.rotation = Quaternion.Euler(0.0f, 270.0f, 0.0f);
-        } else if (x > 0)
-        {
-            transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
-        }
+        FireDirection = new Vector3(x, y, 0.0f).normalized;
 
+        Debug.DrawLine(transform.position, transform.position + FireDirection * 10.0f, Color.red);
 
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && m_isGrounded)
@@ -66,8 +58,8 @@ public class Character2D : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             //Fire a bullet
-            GameObject newBullet = Instantiate(m_BulletInstance, transform.position + transform.forward, transform.rotation);
-            newBullet.GetComponent<Bullet>().Fire(FireDirection);
+            GameObject newBullet = Instantiate(m_BulletInstance, transform.position + FireDirection * 1.2f, transform.rotation);
+            newBullet.GetComponent<Bullet>().Fire(FireDirection, m_speed, x);
         }
     }
 }

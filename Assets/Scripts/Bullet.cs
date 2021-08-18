@@ -7,6 +7,8 @@ public class Bullet : MonoBehaviour
     public Rigidbody m_rb;
     public float m_Speed;
     public Vector3 m_Direction;
+
+    public float m_timer = 0.5f;
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -16,12 +18,19 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        
+        m_timer -= Time.deltaTime;
+
+        if(m_timer < 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
-    public virtual void Fire(Vector3 _Direction)
+    public virtual void Fire(Vector3 _Direction, float _playerSpeed, float _dir)
     {
-        m_rb.AddForce(_Direction, ForceMode.Impulse);
-        m_rb.AddForce(transform.forward * m_Speed, ForceMode.Impulse);
+        //The direction
+        m_rb.AddForce(_Direction * m_Speed, ForceMode.Impulse);
+        //Add the players direction
+        m_rb.AddForce(_dir * transform.right * _playerSpeed, ForceMode.Impulse);
     }
 }
