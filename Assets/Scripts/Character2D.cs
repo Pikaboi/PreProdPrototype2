@@ -41,6 +41,16 @@ public class Character2D : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
 
         m_rb.velocity = new Vector3(x * m_speed, m_rb.velocity.y, m_rb.velocity.z);
+        
+        //2D Turn Around
+        if(x < 0)
+        {
+            transform.rotation = Quaternion.Euler(0.0f, 270.0f, 0.0f);
+        } else if (x > 0)
+        {
+            transform.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
+        }
+
 
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && m_isGrounded)

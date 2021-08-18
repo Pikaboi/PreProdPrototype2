@@ -126,5 +126,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rb: {fileID: 6771049513954368810}
-  m_Speed: 10
+  m_Speed: 20
   m_Direction: {x: 0, y: 0, z: 0}
