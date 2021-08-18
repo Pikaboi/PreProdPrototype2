@@ -19,9 +19,9 @@ public class Bullet : MonoBehaviour
         
     }
 
-    public virtual void Fire()
+    public virtual void Fire(Vector3 _Direction)
     {
-        m_rb.AddForce(new Vector3(0.0f, 0.0f, 1.0f), ForceMode.Impulse);
+        m_rb.AddForce(_Direction, ForceMode.Impulse);
         m_rb.AddForce(transform.forward * m_Speed, ForceMode.Impulse);
     }
 }

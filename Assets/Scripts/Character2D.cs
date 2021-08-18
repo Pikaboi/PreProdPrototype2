@@ -13,6 +13,8 @@ public class Character2D : MonoBehaviour
     [SerializeField] private LayerMask m_groundMask;
     private bool m_isGrounded = false;
 
+    Vector3 FireDirection = Vector3.zero;
+
     private RaycastHit hitInfo;
 
     [SerializeField] private GameObject m_BulletInstance;
@@ -39,8 +41,10 @@ public class Character2D : MonoBehaviour
     {
         //Moving
         float x = Input.GetAxisRaw("Horizontal");
+        float y = Input.GetAxisRaw("Vertical");
 
         m_rb.velocity = new Vector3(x * m_speed, m_rb.velocity.y, m_rb.velocity.z);
+        FireDirection = new Vector3(0.0f, y, x).normalized;
         
         //2D Turn Around
         if(x < 0)
@@ -63,7 +67,7 @@ public class Character2D : MonoBehaviour
         {
             //Fire a bullet
             GameObject newBullet = Instantiate(m_BulletInstance, transform.position + transform.forward, transform.rotation);
-            newBullet.GetComponent<Bullet>().Fire();
+            newBullet.GetComponent<Bullet>().Fire(FireDirection);
         }
     }
 }
