@@ -8,6 +8,8 @@ public class EnemyPatrol : Enemy
     [SerializeField] private Vector3 m_ogPos;
     [SerializeField] private GameObject m_Bullet;
 
+    private GameObject m_currentBullet;
+
     private bool m_Patrolling = true;
 
     private Vector3 m_currentDest;
@@ -57,7 +59,6 @@ public class EnemyPatrol : Enemy
             if(c.GetComponent<Character2D>() != null)
             {
                 m_Patrolling = false;
-                m_agent.isStopped = true;
                 m_Player = c.gameObject;
             }
         }
@@ -66,6 +67,14 @@ public class EnemyPatrol : Enemy
 
     private void Combat()
     {
-       
+        Lookat2D();
+        //m_agent.Move(transform.forward * m_agent.speed * Time.deltaTime);
+
+        if(m_currentBullet == null)
+        {
+            m_currentBullet = Instantiate(m_Bullet, transform.position + m_Aimer.transform.forward * 1.2f, transform.rotation);
+            m_currentBullet.GetComponent<EnemyBullet>().Fire(m_Aimer.transform.forward, m_agent.speed, 1.0f);
+        }
+
     }
 }
