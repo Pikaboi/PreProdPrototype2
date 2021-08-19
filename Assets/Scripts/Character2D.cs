@@ -38,6 +38,19 @@ public class Character2D : MonoBehaviour
     void CheckGrounded()
     {
         m_isGrounded = Physics.CheckSphere(m_groundChecker.transform.position, m_groundDistance, m_groundMask);
+
+        if (m_isGrounded)
+        {
+            if (m_rb.velocity.y > 0)
+            {
+                m_rb.AddForce(Physics.gravity * 5.0f, ForceMode.Acceleration);
+            }
+
+            if (m_rb.velocity.y < 0)
+            {
+                m_rb.AddForce(Physics.gravity * 15.0f, ForceMode.Acceleration);
+            }
+        }
     }
 
     void ControlInputs()
@@ -60,6 +73,11 @@ public class Character2D : MonoBehaviour
         //Shooting
         if (Input.GetMouseButtonDown(0))
         {
+            if(FireDirection == Vector3.zero)
+            {
+                FireDirection = new Vector3(1.0f, 0.0f, 0.0f);
+            }
+
             //Fire a bullet
             GameObject newBullet = Instantiate(m_BulletInstance, transform.position + FireDirection * 1.2f, transform.rotation);
             newBullet.GetComponent<Bullet>().Fire(FireDirection, m_speed, x);
