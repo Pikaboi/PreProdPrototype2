@@ -68,7 +68,7 @@ public class EnemyPatrol : Enemy
     private void Combat()
     {
         Lookat2D();
-        //m_agent.Move(transform.forward * m_agent.speed * Time.deltaTime);
+        m_agent.SetDestination(m_Player.transform.position);
 
         if(m_currentBullet == null)
         {
