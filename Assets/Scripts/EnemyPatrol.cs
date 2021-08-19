@@ -10,6 +10,10 @@ public class EnemyPatrol : Enemy
 
     private GameObject m_currentBullet;
 
+    [SerializeField] private float m_MaxShootTimer = 1.5f;
+
+    private float m_shootTimer = 0.0f;
+
     private bool m_Patrolling = true;
 
     private Vector3 m_currentDest;
@@ -21,6 +25,8 @@ public class EnemyPatrol : Enemy
         m_ogPos = transform.position;
         m_agent.SetDestination(m_patrol.position);
         m_currentDest = m_patrol.position;
+
+        m_shootTimer = m_MaxShootTimer;
     }
 
     // Update is called once per frame
@@ -67,13 +73,16 @@ public class EnemyPatrol : Enemy
 
     private void Combat()
     {
+        m_shootTimer -= Time.deltaTime;
+
         Lookat2D();
         m_agent.SetDestination(m_Player.transform.position);
 
-        if(m_currentBullet == null)
+        if(m_currentBullet == null && m_shootTimer < 0.0f)
         {
             m_currentBullet = Instantiate(m_Bullet, transform.position + m_Aimer.transform.forward * 1.2f, transform.rotation);
             m_currentBullet.GetComponent<EnemyBullet>().Fire(m_Aimer.transform.forward, m_agent.speed, 1.0f);
+            m_shootTimer = 1.5f;
         }
 
     }
