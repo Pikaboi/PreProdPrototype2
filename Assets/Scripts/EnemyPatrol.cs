@@ -76,7 +76,17 @@ public class EnemyPatrol : Enemy
         m_shootTimer -= Time.deltaTime;
 
         Lookat2D();
-        m_agent.SetDestination(m_Player.transform.position);
+
+        float posToPlayer;
+        if(m_Player.transform.position.x - transform.position.x < 0.0f)
+        {
+            posToPlayer = 1.0f;
+        } else
+        {
+            posToPlayer = -1.0f;
+        }
+
+        m_agent.SetDestination(m_Player.transform.position + new Vector3(5.0f, 0.0f, 0.0f) * posToPlayer);
 
         if(m_currentBullet == null && m_shootTimer < 0.0f)
         {
