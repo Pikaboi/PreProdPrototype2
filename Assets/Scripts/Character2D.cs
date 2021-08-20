@@ -19,11 +19,15 @@ public class Character2D : MonoBehaviour
 
     [SerializeField] private GameObject m_BulletInstance;
 
+    bool m_vibin = false;
+
+    float defaultFixedDeltaTime;
 
     // Start is called before the first frame update
     void Start()
     {
         m_rb = GetComponent<Rigidbody>();
+        defaultFixedDeltaTime = Time.fixedDeltaTime;
     }
 
     // Update is called once per frame
@@ -84,7 +88,9 @@ public class Character2D : MonoBehaviour
         //Vaporwave Vibe Mode
         if (Input.GetMouseButton(1))
         {
-            
+            m_vibin = !m_vibin;
+            Time.timeScale = m_vibin ? 0.1f : 1.0f;
+            Time.fixedDeltaTime = defaultFixedDeltaTime * Time.timeScale;
         }
     }
 }
