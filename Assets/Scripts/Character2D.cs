@@ -61,7 +61,7 @@ public class Character2D : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        m_rb.velocity = new Vector3(x * m_speed, m_rb.velocity.y, m_rb.velocity.z);
+        m_rb.velocity = new Vector3(x * m_speed * Time.fixedUnscaledDeltaTime / Time.fixedDeltaTime, m_rb.velocity.y, m_rb.velocity.z);
         FireDirection = new Vector3(x, y, 0.0f).normalized;
 
         Debug.DrawLine(transform.position, transform.position + FireDirection * 10.0f, Color.red);
@@ -86,9 +86,10 @@ public class Character2D : MonoBehaviour
         }
 
         //Vaporwave Vibe Mode
-        if (Input.GetMouseButton(1))
+        if (Input.GetMouseButtonDown(1))
         {
             m_vibin = !m_vibin;
+            Debug.Log(m_vibin);
             Time.timeScale = m_vibin ? 0.1f : 1.0f;
             Time.fixedDeltaTime = defaultFixedDeltaTime * Time.timeScale;
         }
