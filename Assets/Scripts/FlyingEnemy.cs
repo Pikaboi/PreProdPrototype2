@@ -48,7 +48,7 @@ public class FlyingEnemy : Enemy
 
     private void Combat()
     {
-        //Lookat2D();
+        Lookat2D();
     }
 
 }
