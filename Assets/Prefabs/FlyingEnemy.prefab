@@ -146,7 +146,7 @@ MonoBehaviour:
   m_Health: 0
   m_Player: {fileID: 0}
   m_Aimer: {fileID: 599795103485702806}
-  m_Bullet: {fileID: 0}
+  m_Bullet: {fileID: 6771049513954368809, guid: e345ccd308ad1f44387631b71deeba3b, type: 3}
   m_MaxShootTimer: 1.5
 --- !u!114 &599795103515377114
 MonoBehaviour:
@@ -194,7 +194,7 @@ MonoBehaviour:
   repathRate: 0.5
   canSearch: 1
   canMove: 1
-  maxSpeed: 10
+  maxSpeed: 5
   gravity: {x: 0, y: 0, z: 0}
   groundMask:
     serializedVersion: 2
