@@ -48,7 +48,16 @@ public class FlyingEnemy : Enemy
 
     private void Combat()
     {
+        m_shootTimer -= Time.deltaTime;
+
         Lookat2D();
+
+        if (m_currentBullet == null && m_shootTimer < 0.0f)
+        {
+            m_currentBullet = Instantiate(m_Bullet, transform.position + m_Aimer.transform.forward * 1.2f, transform.rotation);
+            m_currentBullet.GetComponent<EnemyBullet>().Fire(m_Aimer.transform.forward, m_agent.speed, 1.0f);
+            m_shootTimer = 1.5f;
+        }
     }
 
 }

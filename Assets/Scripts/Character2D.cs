@@ -19,8 +19,6 @@ public class Character2D : MonoBehaviour
 
     [SerializeField] private GameObject m_BulletInstance;
 
-    private bool m_vibinMode = false;
-
 
     // Start is called before the first frame update
     void Start()
@@ -86,8 +84,7 @@ public class Character2D : MonoBehaviour
         //Vaporwave Vibe Mode
         if (Input.GetMouseButton(1))
         {
-            m_vibinMode = !m_vibinMode;
-            Time.timeScale = m_vibinMode ? 0.5f: 1.0f;
+            
         }
     }
 }
