@@ -1011,6 +1011,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 599795103515377113, guid: 06f95e825c0fcb44d8117cc3846290b9, type: 3}
+      propertyPath: repathRate
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 599795103515377113, guid: 06f95e825c0fcb44d8117cc3846290b9, type: 3}
       propertyPath: whenCloseToDestination
       value: 0
       objectReference: {fileID: 0}
@@ -1021,6 +1025,10 @@ PrefabInstance:
     - target: {fileID: 599795103515377123, guid: 06f95e825c0fcb44d8117cc3846290b9, type: 3}
       propertyPath: m_Name
       value: FlyingEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 599795103515377123, guid: 06f95e825c0fcb44d8117cc3846290b9, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 599795103515377127, guid: 06f95e825c0fcb44d8117cc3846290b9, type: 3}
       propertyPath: m_RootOrder
@@ -1139,6 +1147,10 @@ PrefabInstance:
     - target: {fileID: 4023817013788302842, guid: 7f75b11791d2c3a409692c5f4abb7b1b, type: 3}
       propertyPath: m_Name
       value: EnemyStationary
+      objectReference: {fileID: 0}
+    - target: {fileID: 4023817013788302842, guid: 7f75b11791d2c3a409692c5f4abb7b1b, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4023817013788302844, guid: 7f75b11791d2c3a409692c5f4abb7b1b, type: 3}
       propertyPath: m_RootOrder
