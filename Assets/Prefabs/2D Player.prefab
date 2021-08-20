@@ -78,13 +78,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 10
-  m_jump: 5
+  m_jump: 10
   m_groundChecker: {fileID: 5260213278135345133}
   m_groundDistance: 0.2
   m_groundMask:
     serializedVersion: 2
     m_Bits: 64
-  m_BulletInstance: {fileID: 0}
+  m_BulletInstance: {fileID: 6771049513954368809, guid: 4645445351e9cb54a81ddd9b82bbf244, type: 3}
 --- !u!1 &5260213278135345133
 GameObject:
   m_ObjectHideFlags: 0
