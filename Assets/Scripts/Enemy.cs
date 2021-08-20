@@ -19,7 +19,10 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        
+        if(m_Health <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     public void Lookat2D()
@@ -34,5 +37,13 @@ public class Enemy : MonoBehaviour
         aimerLook.z = 0;
         Quaternion aimerRot = Quaternion.LookRotation(aimerLook);
         m_Aimer.transform.rotation = Quaternion.Slerp(m_Aimer.transform.rotation, aimerRot, 0.2f);
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.GetComponent<PlayerRBullet>() != null)
+        {
+            m_Health -= collision.gameObject.GetComponent<PlayerRBullet>().Damage;
+        }
     }
 }

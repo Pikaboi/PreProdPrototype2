@@ -39,6 +39,8 @@ public class EnemyPatrol : Enemy
         {
             Combat();
         }
+
+        base.Update();
     }
 
     private void Patrol()

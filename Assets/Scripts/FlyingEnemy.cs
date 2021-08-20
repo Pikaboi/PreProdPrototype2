@@ -34,6 +34,8 @@ public class FlyingEnemy : Enemy
         {
             Combat();
         }
+
+        base.Update();
     }
 
     private void Patrolling()

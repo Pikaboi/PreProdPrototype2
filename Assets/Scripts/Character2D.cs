@@ -8,6 +8,7 @@ public class Character2D : MonoBehaviour
     private Rigidbody m_rb;
     [SerializeField] private float m_speed;
     [SerializeField] private float m_jump;
+    [SerializeField] private float m_health;
     [SerializeField] private GameObject m_groundChecker;
     [SerializeField] private float m_groundDistance = 0.2f;
     [SerializeField] private LayerMask m_groundMask;

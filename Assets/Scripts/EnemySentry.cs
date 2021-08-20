@@ -30,6 +30,8 @@ public class EnemySentry : Enemy
         {
             Combat();
         }
+
+        base.Update();
     }
 
     private void DetectPlayer()

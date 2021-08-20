@@ -7,6 +7,7 @@ public class Bullet : MonoBehaviour
     public Rigidbody m_rb;
     public float m_Speed;
     public Vector3 m_Direction;
+    public int Damage;
 
     public float m_timer = 0.5f;
     // Start is called before the first frame update
