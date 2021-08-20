@@ -15,4 +15,11 @@ public class PlayerRBullet : Bullet
     {
         base.Update();
     }
+
+    public override void Fire(Vector3 _Direction, float _playerSpeed, float _dir)
+    {
+        //The direction
+        base.Fire(_Direction, _playerSpeed, _dir);
+    }
+
 }
