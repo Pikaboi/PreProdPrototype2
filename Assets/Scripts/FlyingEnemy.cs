@@ -33,8 +33,6 @@ public class FlyingEnemy : Enemy
 
     private void Patrolling()
     {
-
-
         Collider[] collisions;
         collisions = Physics.OverlapSphere(transform.position, 20.0f);
 

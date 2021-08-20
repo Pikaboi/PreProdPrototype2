@@ -708,7 +708,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 2
-  radius: 0.5
+  radius: 0.93
   height: 2
   repathRate: 0.5
   canSearch: 1
@@ -719,7 +719,7 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 4294967295
   centerOffsetCompatibility: NaN
-  orientation: 0
+  orientation: 1
   enableRotation: 1
   targetCompatibility: {fileID: 0}
   maxAcceleration: -2.5
