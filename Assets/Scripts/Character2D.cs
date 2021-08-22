@@ -73,14 +73,14 @@ public class Character2D : MonoBehaviour
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && m_isGrounded)
         {
-            //m_rb.AddForce(new Vector3(0.0f, m_jump, 0.0f), ForceMode.Impulse);
-            m_rb.velocity += new Vector3(0.0f, m_jump * Time.fixedUnscaledDeltaTime / Time.fixedDeltaTime, 0.0f);
+            m_rb.AddForce(new Vector3(0.0f, m_jump, 0.0f), ForceMode.Impulse);
+            //m_rb.velocity += new Vector3(0.0f, m_jump * Time.fixedUnscaledDeltaTime / Time.fixedDeltaTime, 0.0f);
         }
 
         //Stronger Gravity to maintain similar jump in bullet time
         if (m_vibin && !m_isGrounded)
         {
-            m_rb.velocity += new Vector3(0.0f, (Physics.gravity.y * Time.timeScale) - 0.81f, 0.0f);
+            //m_rb.velocity += new Vector3(0.0f, (Physics.gravity.y * Time.timeScale) - 0.81f, 0.0f);
         }
 
         //Shooting
