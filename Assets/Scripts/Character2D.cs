@@ -20,6 +20,8 @@ public class Character2D : MonoBehaviour
 
     [SerializeField] private GameObject m_BulletInstance;
 
+    private PlayerWeapon m_WeaponControl;
+
     bool m_vibin = false;
 
     float defaultFixedDeltaTime;
@@ -28,6 +30,7 @@ public class Character2D : MonoBehaviour
     void Start()
     {
         m_rb = GetComponent<Rigidbody>();
+        m_WeaponControl = GetComponent<PlayerWeapon>();
         defaultFixedDeltaTime = Time.fixedDeltaTime;
     }
 
@@ -42,16 +45,16 @@ public class Character2D : MonoBehaviour
     {
         m_isGrounded = Physics.CheckSphere(m_groundChecker.transform.position, m_groundDistance, m_groundMask);
 
-        if (m_isGrounded)
+        if (!m_isGrounded)
         {
             if (m_rb.velocity.y > 0)
             {
-                m_rb.AddForce(Physics.gravity * 5.0f, ForceMode.Acceleration);
+                m_rb.AddForce(Physics.gravity * Time.timeScale, ForceMode.Acceleration);
             }
 
             if (m_rb.velocity.y < 0)
             {
-                m_rb.AddForce(Physics.gravity * 15.0f, ForceMode.Acceleration);
+                m_rb.AddForce(Physics.gravity * 3.0f * Time.timeScale, ForceMode.Acceleration);
             }
         }
     }
@@ -70,7 +73,14 @@ public class Character2D : MonoBehaviour
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && m_isGrounded)
         {
-            m_rb.AddForce(new Vector3(0.0f, m_jump, 0.0f), ForceMode.Impulse);
+            //m_rb.AddForce(new Vector3(0.0f, m_jump, 0.0f), ForceMode.Impulse);
+            m_rb.velocity += new Vector3(0.0f, m_jump * Time.fixedUnscaledDeltaTime / Time.fixedDeltaTime, 0.0f);
+        }
+
+        //Stronger Gravity to maintain similar jump in bullet time
+        if (m_vibin && !m_isGrounded)
+        {
+            m_rb.velocity += new Vector3(0.0f, (Physics.gravity.y * Time.timeScale) - 0.81f, 0.0f);
         }
 
         //Shooting
@@ -81,9 +91,13 @@ public class Character2D : MonoBehaviour
                 FireDirection = new Vector3(1.0f, 0.0f, 0.0f);
             }
 
-            //Fire a bullet
-            GameObject newBullet = Instantiate(m_BulletInstance, transform.position + FireDirection * 1.2f, transform.rotation);
-            newBullet.GetComponent<Bullet>().Fire(FireDirection, m_speed, x);
+            m_WeaponControl.Shoot(FireDirection, m_speed, x);
+        }
+
+        //Swapping Weapons
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            m_WeaponControl.CycleWeapons();
         }
 
         //Vaporwave Vibe Mode

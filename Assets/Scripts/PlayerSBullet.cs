@@ -2,15 +2,17 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerRBullet : Bullet
+public class PlayerSBullet : Bullet
 {
-    //Revolver Bullets
-    //Standard bullet type
+    //Shotgun Bullets
+    //Stronger but Slower
+    //Can Richochet
 
     // Start is called before the first frame update
     public override void Start()
     {
         base.Start();
+        m_timer = 5.0f;
     }
 
     // Update is called once per frame
