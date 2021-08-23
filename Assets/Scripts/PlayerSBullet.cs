@@ -27,4 +27,12 @@ public class PlayerSBullet : Bullet
         base.Fire(_Direction, _playerSpeed, _dir);
     }
 
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag != "Player")
+        {
+            m_rb.AddForce(Vector3.Reflect(m_rb.velocity, transform.right), ForceMode.Impulse);
+        }
+    }
+
 }

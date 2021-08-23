@@ -865,6 +865,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: 2D Player
       objectReference: {fileID: 0}
+    - target: {fileID: 5260213278030911304, guid: 1a6105bc2504ea7419ac4bf9cad3da11, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 5260213278030911305, guid: 1a6105bc2504ea7419ac4bf9cad3da11, type: 3}
       propertyPath: m_Constraints
       value: 120
