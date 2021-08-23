@@ -137,6 +137,14 @@ public class Character2D : MonoBehaviour
         }
     }
 
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.tag == "Ladder")
+        {
+            m_rb.velocity = new Vector3(0.0f, 0.0f, 0.0f);
+        }
+    }
+
     public float GetHealth()
     {
         return m_health;
