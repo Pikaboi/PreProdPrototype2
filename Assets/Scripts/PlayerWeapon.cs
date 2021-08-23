@@ -21,7 +21,8 @@ public class PlayerWeapon : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        m_BType = BulletType.REVOLVER;
+        m_CurrentBullet = m_bullets[0];
     }
 
     public void CycleWeapons()

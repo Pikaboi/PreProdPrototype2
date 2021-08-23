@@ -49,12 +49,12 @@ public class Character2D : MonoBehaviour
         {
             if (m_rb.velocity.y > 0)
             {
-                m_rb.AddForce(Physics.gravity * Time.timeScale, ForceMode.Acceleration);
+                m_rb.AddForce(Physics.gravity, ForceMode.Acceleration);
             }
 
             if (m_rb.velocity.y < 0)
             {
-                m_rb.AddForce(Physics.gravity * 3.0f * Time.timeScale, ForceMode.Acceleration);
+                m_rb.AddForce(Physics.gravity * 3.0f, ForceMode.Acceleration);
             }
         }
     }
@@ -65,7 +65,7 @@ public class Character2D : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
-        m_rb.velocity = new Vector3(x * m_speed * Time.fixedUnscaledDeltaTime / Time.fixedDeltaTime, m_rb.velocity.y, m_rb.velocity.z);
+        m_rb.velocity = new Vector3(x * m_speed, m_rb.velocity.y, m_rb.velocity.z);
         FireDirection = new Vector3(x, y, 0.0f).normalized;
 
         Debug.DrawLine(transform.position, transform.position + FireDirection * 10.0f, Color.red);
@@ -74,13 +74,6 @@ public class Character2D : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && m_isGrounded)
         {
             m_rb.AddForce(new Vector3(0.0f, m_jump, 0.0f), ForceMode.Impulse);
-            //m_rb.velocity += new Vector3(0.0f, m_jump * Time.fixedUnscaledDeltaTime / Time.fixedDeltaTime, 0.0f);
-        }
-
-        //Stronger Gravity to maintain similar jump in bullet time
-        if (m_vibin && !m_isGrounded)
-        {
-            //m_rb.velocity += new Vector3(0.0f, (Physics.gravity.y * Time.timeScale) - 0.81f, 0.0f);
         }
 
         //Shooting
