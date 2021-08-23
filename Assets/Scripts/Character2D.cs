@@ -39,9 +39,20 @@ public class Character2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckGrounded();
-        ControlInputs();
-        VibeControl();
+        if (m_health <= 0)
+        {
+            CheckGrounded();
+            ControlInputs();
+            VibeControl();
+        } else
+        {
+            GameObject[] uis = GameObject.FindGameObjectsWithTag("DeathUI");
+
+            foreach(GameObject g in uis)
+            {
+                g.SetActive(true);
+            }
+        }
     }
 
     void CheckGrounded()
