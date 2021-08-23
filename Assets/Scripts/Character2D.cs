@@ -12,6 +12,7 @@ public class Character2D : MonoBehaviour
     [SerializeField] private GameObject m_groundChecker;
     [SerializeField] private float m_groundDistance = 0.2f;
     [SerializeField] private LayerMask m_groundMask;
+    [SerializeField] private LineRenderer m_Line;
     private bool m_isGrounded = false;
 
     Vector3 FireDirection = Vector3.zero;
@@ -94,9 +95,11 @@ public class Character2D : MonoBehaviour
         mouseX = new Vector3(mouseX.x, mouseX.y, transform.position.z);
 
         m_rb.velocity = new Vector3(x * m_speed, m_rb.velocity.y, m_rb.velocity.z);
-        FireDirection = mouseX - transform.position;
+        FireDirection = (mouseX - transform.position).normalized;
 
-        Debug.DrawLine(transform.position, transform.position + FireDirection * 10.0f, Color.red);
+        //Debug.DrawLine(transform.position, transform.position + FireDirection * 10.0f, Color.red);
+        m_Line.SetPosition(0, transform.position + FireDirection);
+        m_Line.SetPosition(1, transform.position + FireDirection * 5.0f);
 
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && m_isGrounded)
