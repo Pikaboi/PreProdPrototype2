@@ -39,7 +39,7 @@ public class Character2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_health <= 0)
+        if (m_health >= 0)
         {
             CheckGrounded();
             ControlInputs();
@@ -159,5 +159,13 @@ public class Character2D : MonoBehaviour
     public float GetHealth()
     {
         return m_health;
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if(collision.gameObject.GetComponent<EnemyBullet>() != null)
+        {
+            m_health--;
+        }
     }
 }

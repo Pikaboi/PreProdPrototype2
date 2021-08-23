@@ -370,7 +370,7 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 717960625}
         m_TargetAssemblyTypeName: LoadScene, Assembly-CSharp
-        m_MethodName: GameScene
+        m_MethodName: Title
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -681,7 +681,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Title
 --- !u!222 &1978456820
 CanvasRenderer:
   m_ObjectHideFlags: 0
