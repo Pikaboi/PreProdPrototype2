@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 1764648291}
   m_Layer: 0
   m_Name: 2D Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 5260213278030911304}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 2.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_Children:
   - {fileID: 5260213278135345138}
   - {fileID: 8155054337352699669}
@@ -64,7 +64,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 120
   m_CollisionDetection: 0
 --- !u!114 &5260213278030911314
 MonoBehaviour:
@@ -79,7 +79,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_speed: 10
-  m_jump: 10
+  m_jump: 12
   m_health: 0
   m_groundChecker: {fileID: 5260213278135345133}
   m_groundDistance: 0.2
@@ -101,7 +101,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_BType: 0
-  m_bullets: []
+  m_bullets:
+  - {fileID: 6771049513954368809, guid: 4645445351e9cb54a81ddd9b82bbf244, type: 3}
+  - {fileID: 6771049513954368809, guid: 173760b108d2ba14da55d083018da4f4, type: 3}
+  - {fileID: 6771049513954368809, guid: e2aa06aa5b881c242ada90a1e262beff, type: 3}
   m_CurrentBullet: {fileID: 0}
 --- !u!1 &5260213278135345133
 GameObject:
