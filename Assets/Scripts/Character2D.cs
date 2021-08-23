@@ -127,4 +127,13 @@ public class Character2D : MonoBehaviour
             Time.fixedDeltaTime = defaultFixedDeltaTime * Time.timeScale;
         }
     }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.tag == "Ladder")
+        {
+            float y = Input.GetAxisRaw("Vertical");
+            m_rb.velocity += new Vector3(0.0f, y, 0.0f);
+        }
+    }
 }
