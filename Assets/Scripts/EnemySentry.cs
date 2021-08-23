@@ -37,7 +37,7 @@ public class EnemySentry : Enemy
     private void DetectPlayer()
     {
         Collider[] collisions;
-        collisions = Physics.OverlapSphere(transform.position, 20.0f);
+        collisions = Physics.OverlapSphere(transform.position, 10.0f);
 
         foreach (Collider c in collisions)
         {

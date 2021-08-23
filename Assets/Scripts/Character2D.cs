@@ -136,4 +136,9 @@ public class Character2D : MonoBehaviour
             m_rb.velocity += new Vector3(0.0f, y, 0.0f);
         }
     }
+
+    public float GetHealth()
+    {
+        return m_health;
+    }
 }

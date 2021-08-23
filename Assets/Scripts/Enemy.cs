@@ -45,5 +45,13 @@ public class Enemy : MonoBehaviour
         {
             m_Health -= collision.gameObject.GetComponent<PlayerRBullet>().Damage;
         }
+        if (collision.gameObject.GetComponent<PlayerSBullet>() != null)
+        {
+            m_Health -= collision.gameObject.GetComponent<PlayerSBullet>().Damage;
+        }
+        if (collision.gameObject.GetComponent<PlayerLBullet>() != null)
+        {
+            m_Health -= collision.gameObject.GetComponent<PlayerLBullet>().Damage;
+        }
     }
 }
