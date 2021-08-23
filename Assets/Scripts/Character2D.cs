@@ -28,12 +28,21 @@ public class Character2D : MonoBehaviour
 
     float defaultFixedDeltaTime;
 
+    GameObject[] uis;
+
     // Start is called before the first frame update
     void Start()
     {
         m_rb = GetComponent<Rigidbody>();
         m_WeaponControl = GetComponent<PlayerWeapon>();
         defaultFixedDeltaTime = Time.fixedDeltaTime;
+
+        uis = GameObject.FindGameObjectsWithTag("DeathUI");
+
+        foreach (GameObject g in uis)
+        {
+            g.SetActive(false);
+        }
     }
 
     // Update is called once per frame
@@ -46,7 +55,7 @@ public class Character2D : MonoBehaviour
             VibeControl();
         } else
         {
-            GameObject[] uis = GameObject.FindGameObjectsWithTag("DeathUI");
+            Debug.Log(uis.Length);
 
             foreach(GameObject g in uis)
             {

@@ -74,7 +74,7 @@ public class FlyingEnemy : Enemy
 
         if (m_currentBullet == null && m_shootTimer < 0.0f)
         {
-            m_currentBullet = Instantiate(m_Bullet, transform.position + m_Aimer.transform.forward * 1.2f, transform.rotation);
+            m_currentBullet = Instantiate(m_Bullet, transform.position + m_Aimer.transform.forward, transform.rotation);
             //Make the _PlayerSpeed 2x the speed of the AIs speed
             m_currentBullet.GetComponent<EnemyBullet>().Fire(m_Aimer.transform.forward, m_PathControl.maxSpeed * 2.0f, 1.0f);
             m_shootTimer = 1.5f;

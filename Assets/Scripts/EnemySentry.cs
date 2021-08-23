@@ -58,7 +58,7 @@ public class EnemySentry : Enemy
 
         if (m_currentBullet == null && m_shootTimer < 0.0f)
         {
-            m_currentBullet = Instantiate(m_Bullet, transform.position + m_Aimer.transform.forward * 1.2f, transform.rotation);
+            m_currentBullet = Instantiate(m_Bullet, transform.position + m_Aimer.transform.forward, transform.rotation);
             m_currentBullet.GetComponent<EnemyBullet>().Fire(m_Aimer.transform.forward, m_agent.speed, 1.0f);
             m_shootTimer = 1.5f;
         }

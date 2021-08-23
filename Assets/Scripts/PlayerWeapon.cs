@@ -51,7 +51,7 @@ public class PlayerWeapon : MonoBehaviour
     public void Shoot(Vector3 _FireDirection, float _speed, float _x)
     {
         //Fire a bullet
-        GameObject newBullet = Instantiate(m_CurrentBullet, transform.position + _FireDirection * 2.0f, transform.rotation);
+        GameObject newBullet = Instantiate(m_CurrentBullet, transform.position + _FireDirection, transform.rotation);
         newBullet.GetComponent<Bullet>().Fire(_FireDirection, _speed, _x);
     }
 }
