@@ -88,8 +88,13 @@ public class Character2D : MonoBehaviour
         float x = Input.GetAxisRaw("Horizontal");
         float y = Input.GetAxisRaw("Vertical");
 
+        Vector3 mouseX = Input.mousePosition;
+
+        mouseX = Camera.main.ScreenToWorldPoint(new Vector3(mouseX.x, mouseX.y, 4.041f));
+        mouseX = new Vector3(mouseX.x, mouseX.y, transform.position.z);
+
         m_rb.velocity = new Vector3(x * m_speed, m_rb.velocity.y, m_rb.velocity.z);
-        FireDirection = new Vector3(x, y, 0.0f).normalized;
+        FireDirection = mouseX - transform.position;
 
         Debug.DrawLine(transform.position, transform.position + FireDirection * 10.0f, Color.red);
 
