@@ -24,8 +24,13 @@ public class PlayerLBullet : Bullet
     public override void Fire(Vector3 _Direction, float _playerSpeed, float _dir)
     {
         //The direction
-        m_rb.velocity = _Direction * m_Speed;
+        m_rb.AddForce(_Direction * m_Speed / Time.timeScale, ForceMode.Impulse);
         //Add the players direction
-        //m_rb.AddForce(_dir * transform.right * _playerSpeed, ForceMode.Impulse);
+        m_rb.AddForce(_dir * transform.right * _playerSpeed / Time.timeScale, ForceMode.Impulse);
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
     }
 }

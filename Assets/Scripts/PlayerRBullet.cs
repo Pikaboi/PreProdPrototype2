@@ -25,4 +25,9 @@ public class PlayerRBullet : Bullet
         base.Fire(_Direction, _playerSpeed, _dir);
     }
 
+    public void OnCollisionEnter(Collision collision)
+    {
+        Destroy(gameObject);
+    }
+
 }

@@ -128,5 +128,5 @@ MonoBehaviour:
   m_rb: {fileID: 6771049513954368810}
   m_Speed: 15
   m_Direction: {x: 0, y: 0, z: 0}
-  Damage: 0
-  m_timer: 0.5
+  Damage: 4
+  m_timer: 5
