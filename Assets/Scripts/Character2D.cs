@@ -24,6 +24,8 @@ public class Character2D : MonoBehaviour
 
     bool m_vibin = false;
 
+    public float m_VibeTimer = 30.0f;
+
     float defaultFixedDeltaTime;
 
     // Start is called before the first frame update
@@ -39,6 +41,7 @@ public class Character2D : MonoBehaviour
     {
         CheckGrounded();
         ControlInputs();
+        VibeControl();
     }
 
     void CheckGrounded()
@@ -95,6 +98,28 @@ public class Character2D : MonoBehaviour
 
         //Vaporwave Vibe Mode
         if (Input.GetMouseButtonDown(1))
+        {
+            m_vibin = !m_vibin;
+            Debug.Log(m_vibin);
+            Time.timeScale = m_vibin ? 0.1f : 1.0f;
+            Time.fixedDeltaTime = defaultFixedDeltaTime * Time.timeScale;
+        }
+    }
+
+    void VibeControl()
+    {
+        if (m_vibin)
+        {
+            //So it decreases in real time
+            m_VibeTimer -= Time.unscaledDeltaTime;
+        } else
+        {
+            m_VibeTimer += Time.unscaledDeltaTime;
+        }
+
+        m_VibeTimer = Mathf.Clamp(m_VibeTimer, 0.0f, 30.0f);
+
+        if(m_VibeTimer <= 0.0f && m_vibin)
         {
             m_vibin = !m_vibin;
             Debug.Log(m_vibin);
