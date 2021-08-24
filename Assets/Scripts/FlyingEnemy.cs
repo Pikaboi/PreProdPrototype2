@@ -16,6 +16,8 @@ public class FlyingEnemy : Enemy
     private Pathfinding.AIDestinationSetter m_DestinationControl;
     private Pathfinding.AIPath m_PathControl;
 
+    private float m_speed = 5.0f;
+
     // Start is called before the first frame update
     public override void Start()
     {
@@ -27,6 +29,9 @@ public class FlyingEnemy : Enemy
     // Update is called once per frame
     public override void Update()
     {
+        m_PathControl.maxSpeed = m_speed * GameObject.FindGameObjectWithTag("CustomTScale").GetComponent<CustomTimeScale>().c_Time;
+        m_PathControl.repathRate = 1 / GameObject.FindGameObjectWithTag("CustomTScale").GetComponent<CustomTimeScale>().c_Time;
+
         if (m_Patrolling)
         {
             Patrolling();
