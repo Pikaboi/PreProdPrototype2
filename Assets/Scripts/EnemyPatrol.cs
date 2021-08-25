@@ -81,7 +81,7 @@ public class EnemyPatrol : Enemy
 
     private void Combat()
     {
-        m_shootTimer -= Time.deltaTime;
+        m_shootTimer -= Time.deltaTime * m_ZoneTimeScale;
 
         Lookat2D();
 
@@ -100,8 +100,13 @@ public class EnemyPatrol : Enemy
         {
             m_currentBullet = Instantiate(m_Bullet, transform.position + m_Aimer.transform.forward, transform.rotation);
             m_currentBullet.GetComponent<EnemyBullet>().Fire(m_Aimer.transform.forward, m_agent.speed, 1.0f);
-            m_shootTimer = 1.5f * m_ZoneTimeScale;
+            m_shootTimer = 1.5f;
         }
 
+    }
+
+    public override void OnTriggerStay(Collider other)
+    {
+        base.OnTriggerStay(other);
     }
 }

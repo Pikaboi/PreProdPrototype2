@@ -35,7 +35,7 @@ public class PlayerLBullet : Bullet
         Destroy(gameObject);
     }
 
-    public override void OnTriggerEnter(Collider other)
+    public override void OnTriggerStay(Collider other)
     {
         if (other.tag == "CustomTScale")
         {

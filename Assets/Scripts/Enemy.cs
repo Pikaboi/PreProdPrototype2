@@ -56,7 +56,7 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    public void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerStay(Collider other)
     {
         if(other.tag == "CustomTScale")
         {

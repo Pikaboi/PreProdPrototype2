@@ -85,5 +85,9 @@ public class FlyingEnemy : Enemy
             m_shootTimer = 1.5f;
         }
     }
+    public override void OnTriggerStay(Collider other)
+    {
+        base.OnTriggerStay(other);
+    }
 
 }

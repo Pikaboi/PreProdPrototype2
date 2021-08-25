@@ -130,9 +130,20 @@ public class Character2D : MonoBehaviour
         if (Input.GetMouseButtonDown(1))
         {
             m_vibin = !m_vibin;
-            Debug.Log(m_vibin);
-            Time.timeScale = m_vibin ? 0.1f : 1.0f;
-            Time.fixedDeltaTime = defaultFixedDeltaTime * Time.timeScale;
+
+            GameObject[] timeScales = GameObject.FindGameObjectsWithTag("CustomTScale");
+
+            foreach (GameObject g in timeScales)
+            {
+                if (g.GetComponent<CustomTimeScale>().c_Time == 1.0f)
+                {
+                    g.GetComponent<CustomTimeScale>().c_Time = 0.1f;
+                }
+                else if (g.GetComponent<CustomTimeScale>().c_Time == 0.1f)
+                {
+                    g.GetComponent<CustomTimeScale>().c_Time = 1.0f;
+                }
+            }
         }
     }
 
@@ -152,9 +163,20 @@ public class Character2D : MonoBehaviour
         if(m_VibeTimer <= 0.0f && m_vibin)
         {
             m_vibin = !m_vibin;
-            Debug.Log(m_vibin);
-            Time.timeScale = m_vibin ? 0.1f : 1.0f;
-            Time.fixedDeltaTime = defaultFixedDeltaTime * Time.timeScale;
+
+            GameObject[] timeScales = GameObject.FindGameObjectsWithTag("CustomTScale");
+
+            foreach (GameObject g in timeScales)
+            {
+                if (g.GetComponent<CustomTimeScale>().c_Time == 1.0f)
+                {
+                    g.GetComponent<CustomTimeScale>().c_Time = 0.1f;
+                }
+                else if (g.GetComponent<CustomTimeScale>().c_Time == 0.1f)
+                {
+                    g.GetComponent<CustomTimeScale>().c_Time = 1.0f;
+                }
+            }
         }
     }
 
@@ -164,6 +186,11 @@ public class Character2D : MonoBehaviour
         {
             float y = Input.GetAxisRaw("Vertical");
             m_rb.velocity += new Vector3(0.0f, y, 0.0f);
+        }
+
+        if (other.tag == "CustomTScale")
+        {
+            m_ZoneTimeScale = other.GetComponent<CustomTimeScale>().c_Time;
         }
     }
 
@@ -185,14 +212,6 @@ public class Character2D : MonoBehaviour
         if(collision.gameObject.GetComponent<EnemyBullet>() != null)
         {
             m_health--;
-        }
-    }
-
-    public void OnTriggerEnter(Collider other)
-    {
-        if (other.tag == "CustomTScale")
-        {
-            m_ZoneTimeScale = other.GetComponent<CustomTimeScale>().c_Time;
         }
     }
 }

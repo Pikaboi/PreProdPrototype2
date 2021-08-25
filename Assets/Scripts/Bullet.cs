@@ -38,7 +38,7 @@ public class Bullet : MonoBehaviour
         m_rb.AddForce(_dir * transform.right * _playerSpeed, ForceMode.Impulse);
     }
 
-    public virtual void OnTriggerEnter(Collider other)
+    public virtual void OnTriggerStay(Collider other)
     {
         if (other.tag == "CustomTScale")
         {

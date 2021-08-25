@@ -30,8 +30,8 @@ public class PlayerRBullet : Bullet
         Destroy(gameObject);
     }
 
-    public override void OnTriggerEnter(Collider other)
+    public override void OnTriggerStay(Collider other)
     {
-        base.OnTriggerEnter(other);
+        base.OnTriggerStay(other);
     }
 }

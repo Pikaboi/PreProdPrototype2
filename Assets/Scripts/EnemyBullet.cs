@@ -22,8 +22,8 @@ public class EnemyBullet : Bullet
         m_rb.AddForce(_Direction * m_Speed * m_ZoneTimeScale, ForceMode.Impulse);
     }
 
-    public override void OnTriggerEnter(Collider other)
+    public override void OnTriggerStay(Collider other)
     {
-        base.OnTriggerEnter(other);
+        base.OnTriggerStay(other);
     }
 }
