@@ -60,7 +60,7 @@ public class EnemySentry : Enemy
         {
             m_currentBullet = Instantiate(m_Bullet, transform.position + m_Aimer.transform.forward, transform.rotation);
             m_currentBullet.GetComponent<EnemyBullet>().Fire(m_Aimer.transform.forward, m_agent.speed, 1.0f);
-            m_shootTimer = 1.5f;
+            m_shootTimer = 1.5f * m_ZoneTimeScale;
         }
 
     }

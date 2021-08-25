@@ -29,8 +29,8 @@ public class FlyingEnemy : Enemy
     // Update is called once per frame
     public override void Update()
     {
-        m_PathControl.maxSpeed = m_speed * GameObject.FindGameObjectWithTag("CustomTScale").GetComponent<CustomTimeScale>().c_Time;
-        m_PathControl.repathRate = 1 / GameObject.FindGameObjectWithTag("CustomTScale").GetComponent<CustomTimeScale>().c_Time;
+        m_PathControl.maxSpeed = m_speed * m_ZoneTimeScale;
+        m_PathControl.repathRate = 1 / m_ZoneTimeScale;
 
         if (m_Patrolling)
         {

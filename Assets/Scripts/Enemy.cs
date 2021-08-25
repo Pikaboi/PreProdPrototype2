@@ -9,6 +9,7 @@ public class Enemy : MonoBehaviour
     public int m_Health;
     public GameObject m_Player;
     public GameObject m_Aimer;
+    public float m_ZoneTimeScale = 1.0f;
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -52,6 +53,14 @@ public class Enemy : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerLBullet>() != null)
         {
             m_Health -= collision.gameObject.GetComponent<PlayerLBullet>().Damage;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "CustomTScale")
+        {
+            m_ZoneTimeScale = other.GetComponent<CustomTimeScale>().c_Time;
         }
     }
 }

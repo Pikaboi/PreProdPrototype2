@@ -19,6 +19,6 @@ public class EnemyBullet : Bullet
     public override void Fire(Vector3 _Direction, float _playerSpeed, float _dir)
     {
         //The direction
-        m_rb.AddForce(_Direction * m_Speed, ForceMode.Impulse);
+        m_rb.AddForce(_Direction * m_Speed * m_ZoneTimeScale, ForceMode.Impulse);
     }
 }

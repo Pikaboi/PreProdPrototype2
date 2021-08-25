@@ -24,13 +24,26 @@ public class PlayerLBullet : Bullet
     public override void Fire(Vector3 _Direction, float _playerSpeed, float _dir)
     {
         //The direction
-        m_rb.AddForce(_Direction * m_Speed / Time.timeScale, ForceMode.Impulse);
+        m_rb.AddForce(_Direction * m_Speed * m_ZoneTimeScale, ForceMode.Impulse);
         //Add the players direction
-        m_rb.AddForce(_dir * transform.right * _playerSpeed / Time.timeScale, ForceMode.Impulse);
+        m_rb.AddForce(_dir * transform.right * _playerSpeed, ForceMode.Impulse);
     }
 
     public void OnCollisionEnter(Collision collision)
     {
         Destroy(gameObject);
+    }
+
+    public override void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "CustomTScale")
+        {
+            if(other.GetComponent<CustomTimeScale>().c_Time < 0.0f)
+            {
+                m_ZoneTimeScale = 1.0f;
+            } else {
+                m_ZoneTimeScale = 0.1f;
+            }
+        }
     }
 }

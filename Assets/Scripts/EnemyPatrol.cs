@@ -18,6 +18,8 @@ public class EnemyPatrol : Enemy
 
     private Vector3 m_currentDest;
 
+    private float baseSpeed;
+
     public override void Start()
     {
         base.Start();
@@ -27,6 +29,8 @@ public class EnemyPatrol : Enemy
         m_currentDest = m_patrol.position;
 
         m_shootTimer = m_MaxShootTimer;
+
+        baseSpeed = m_agent.speed;
     }
 
     // Update is called once per frame
@@ -39,6 +43,8 @@ public class EnemyPatrol : Enemy
         {
             Combat();
         }
+
+        m_agent.speed = baseSpeed * m_ZoneTimeScale;
 
         base.Update();
     }
@@ -94,7 +100,7 @@ public class EnemyPatrol : Enemy
         {
             m_currentBullet = Instantiate(m_Bullet, transform.position + m_Aimer.transform.forward, transform.rotation);
             m_currentBullet.GetComponent<EnemyBullet>().Fire(m_Aimer.transform.forward, m_agent.speed, 1.0f);
-            m_shootTimer = 1.5f;
+            m_shootTimer = 1.5f * m_ZoneTimeScale;
         }
 
     }

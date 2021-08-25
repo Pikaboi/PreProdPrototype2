@@ -29,6 +29,8 @@ public class Character2D : MonoBehaviour
 
     float defaultFixedDeltaTime;
 
+    private float m_ZoneTimeScale = 1.0f;
+
     GameObject[] uis;
 
     // Start is called before the first frame update
@@ -73,12 +75,12 @@ public class Character2D : MonoBehaviour
         {
             if (m_rb.velocity.y > 0)
             {
-                m_rb.AddForce(Physics.gravity, ForceMode.Acceleration);
+                m_rb.AddForce(Physics.gravity * m_ZoneTimeScale, ForceMode.Acceleration);
             }
 
             if (m_rb.velocity.y < 0)
             {
-                m_rb.AddForce(Physics.gravity * 3.0f, ForceMode.Acceleration);
+                m_rb.AddForce(Physics.gravity * 3.0f * m_ZoneTimeScale, ForceMode.Acceleration);
             }
         }
     }
@@ -94,7 +96,7 @@ public class Character2D : MonoBehaviour
         mouseX = Camera.main.ScreenToWorldPoint(new Vector3(mouseX.x, mouseX.y, 4.041f));
         mouseX = new Vector3(mouseX.x, mouseX.y, transform.position.z);
 
-        m_rb.velocity = new Vector3(x * m_speed, m_rb.velocity.y, m_rb.velocity.z);
+        m_rb.velocity = new Vector3(x * m_speed, m_rb.velocity.y, m_rb.velocity.z) * m_ZoneTimeScale;
         FireDirection = (mouseX - transform.position).normalized;
 
         //Debug.DrawLine(transform.position, transform.position + FireDirection * 10.0f, Color.red);
@@ -183,6 +185,14 @@ public class Character2D : MonoBehaviour
         if(collision.gameObject.GetComponent<EnemyBullet>() != null)
         {
             m_health--;
+        }
+    }
+
+    public void OnTriggerEnter(Collider other)
+    {
+        if (other.tag == "CustomTScale")
+        {
+            m_ZoneTimeScale = other.GetComponent<CustomTimeScale>().c_Time;
         }
     }
 }
