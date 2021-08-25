@@ -35,4 +35,9 @@ public class PlayerSBullet : Bullet
         }
     }
 
+    public override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+    }
+
 }

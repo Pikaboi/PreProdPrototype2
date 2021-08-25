@@ -20,18 +20,20 @@ public class Bullet : MonoBehaviour
     // Update is called once per frame
     public virtual void Update()
     {
-        m_timer -= Time.deltaTime;
+        m_timer -= Time.deltaTime * m_ZoneTimeScale;
 
         if(m_timer < 0)
         {
             Destroy(gameObject);
         }
+
+        m_rb.velocity = m_rb.velocity * m_ZoneTimeScale;
     }
 
     public virtual void Fire(Vector3 _Direction, float _playerSpeed, float _dir)
     {
         //The direction
-        m_rb.AddForce(_Direction * m_Speed * m_ZoneTimeScale, ForceMode.Impulse);
+        m_rb.AddForce(_Direction * m_Speed, ForceMode.Impulse);
         //Add the players direction
         m_rb.AddForce(_dir * transform.right * _playerSpeed, ForceMode.Impulse);
     }

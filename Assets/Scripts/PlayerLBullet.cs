@@ -19,12 +19,13 @@ public class PlayerLBullet : Bullet
     public override void Update()
     {
         base.Update();
+        m_rb.velocity = m_rb.velocity * m_ZoneTimeScale;
     }
 
     public override void Fire(Vector3 _Direction, float _playerSpeed, float _dir)
     {
         //The direction
-        m_rb.AddForce(_Direction * m_Speed * m_ZoneTimeScale, ForceMode.Impulse);
+        m_rb.AddForce(_Direction * m_Speed, ForceMode.Impulse);
         //Add the players direction
         m_rb.AddForce(_dir * transform.right * _playerSpeed, ForceMode.Impulse);
     }
