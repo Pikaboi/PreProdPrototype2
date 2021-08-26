@@ -7,7 +7,7 @@ public class LoadScene : MonoBehaviour
 {
     public void GameScene()
     {
-        SceneManager.LoadScene("ArtScene");
+        SceneManager.LoadScene("GameScenebackup");
     }
 
     public void Title()

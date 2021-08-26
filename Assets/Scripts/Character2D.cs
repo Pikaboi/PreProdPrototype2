@@ -75,12 +75,14 @@ public class Character2D : MonoBehaviour
         {
             if (m_rb.velocity.y > 0)
             {
-                m_rb.AddForce(Physics.gravity * m_ZoneTimeScale, ForceMode.Acceleration);
+                m_rb.AddForce(Physics.gravity / 10.0f, ForceMode.Acceleration);
+                //m_rb.velocity = new Vector3(m_rb.velocity.x, m_rb.velocity.y + ((Physics.gravity.y - 9.0f) * m_ZoneTimeScale), m_rb.velocity.z);
             }
 
             if (m_rb.velocity.y < 0)
             {
-                m_rb.AddForce(Physics.gravity * 3.0f * m_ZoneTimeScale, ForceMode.Acceleration);
+                m_rb.AddForce(Physics.gravity * 3.0f / 10.0f, ForceMode.Acceleration);
+                //m_rb.velocity = new Vector3(m_rb.velocity.x, m_rb.velocity.y + (Physics.gravity.y * m_ZoneTimeScale), m_rb.velocity.z);
             }
         }
     }
@@ -96,7 +98,7 @@ public class Character2D : MonoBehaviour
         mouseX = Camera.main.ScreenToWorldPoint(new Vector3(mouseX.x, mouseX.y, 4.041f));
         mouseX = new Vector3(mouseX.x, mouseX.y, transform.position.z);
 
-        m_rb.velocity = new Vector3(x * m_speed, m_rb.velocity.y, m_rb.velocity.z) * m_ZoneTimeScale;
+        m_rb.velocity = new Vector3(x * m_speed * m_ZoneTimeScale, m_rb.velocity.y, m_rb.velocity.z);
         FireDirection = (mouseX - transform.position).normalized;
 
         //Debug.DrawLine(transform.position, transform.position + FireDirection * 10.0f, Color.red);
@@ -106,7 +108,7 @@ public class Character2D : MonoBehaviour
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && m_isGrounded)
         {
-            m_rb.AddForce(new Vector3(0.0f, m_jump, 0.0f), ForceMode.Impulse);
+            m_rb.AddForce(new Vector3(0.0f, m_jump, 0.0f), ForceMode.Impulse);// * m_ZoneTimeScale
         }
 
         //Shooting
