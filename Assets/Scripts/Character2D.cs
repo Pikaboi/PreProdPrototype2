@@ -75,13 +75,13 @@ public class Character2D : MonoBehaviour
         {
             if (m_rb.velocity.y > 0)
             {
-                m_rb.AddForce(Physics.gravity / 10.0f, ForceMode.Acceleration);
+                m_rb.AddForce(Physics.gravity, ForceMode.Acceleration);
                 //m_rb.velocity = new Vector3(m_rb.velocity.x, m_rb.velocity.y + ((Physics.gravity.y - 9.0f) * m_ZoneTimeScale), m_rb.velocity.z);
             }
 
             if (m_rb.velocity.y < 0)
             {
-                m_rb.AddForce(Physics.gravity * 3.0f / 10.0f, ForceMode.Acceleration);
+                m_rb.AddForce(Physics.gravity * 3.0f, ForceMode.Acceleration);
                 //m_rb.velocity = new Vector3(m_rb.velocity.x, m_rb.velocity.y + (Physics.gravity.y * m_ZoneTimeScale), m_rb.velocity.z);
             }
         }
