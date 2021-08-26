@@ -1,17 +1,29 @@
 fileFormatVersion: 2
-guid: 65fc14675a069d84dbe98af6d7ca1151
+guid: 2374660ae9623e249b81f08a12489e6c
 ModelImporter:
   serializedVersion: 20200
-  internalIDToNameTable:
-  - first:
-      74: 1827226128182048838
-    second: Take 001
+  internalIDToNameTable: []
   externalObjects:
   - first:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: ee904d7bcebdd974f8079a96220e87a9, type: 2}
+      name: BULLET_CARTERT1
+    second: {fileID: 2100000, guid: a3fa1719e085a964d8ffc5721a5bef6f, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: TRIGGER1
+    second: {fileID: 2100000, guid: 142a808c67ef4fe47ab017c8a2d46bdf, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handle1
+    second: {fileID: 2100000, guid: e2012d01e8b8b9546a3be9fa5885540e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert9
+    second: {fileID: 2100000, guid: 11aaf5704b936994695c909f392adb07, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
