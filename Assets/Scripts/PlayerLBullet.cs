@@ -23,6 +23,8 @@ public class PlayerLBullet : Bullet
         }
 
         base.Update();
+
+        
     }
 
     public override void Fire(Vector3 _Direction, float _playerSpeed, float _dir)

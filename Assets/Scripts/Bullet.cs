@@ -39,9 +39,6 @@ public class Bullet : MonoBehaviour
         m_rb.AddForce(_Direction * m_Speed, ForceMode.Impulse);
         //Add the players direction
         m_rb.AddForce(_dir * transform.right * _playerSpeed, ForceMode.Impulse);
-
-        m_Vel = m_rb.velocity;
-        Debug.Log(m_Vel);
     }
 
     public virtual void OnTriggerStay(Collider other)
