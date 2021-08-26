@@ -53,5 +53,7 @@ public class PlayerLBullet : Bullet
                 m_ZoneTimeScale = 0.1f;
             }
         }
+
+        m_shootAudio.pitch = m_ZoneTimeScale;
     }
 }

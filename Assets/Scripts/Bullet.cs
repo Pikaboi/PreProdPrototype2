@@ -46,6 +46,7 @@ public class Bullet : MonoBehaviour
         if (other.tag == "CustomTScale")
         {
             m_ZoneTimeScale = other.GetComponent<CustomTimeScale>().c_Time;
+            m_shootAudio.pitch = m_ZoneTimeScale;
         }
     }
 }

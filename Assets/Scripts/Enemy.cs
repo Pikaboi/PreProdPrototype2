@@ -66,6 +66,7 @@ public class Enemy : MonoBehaviour
         if(other.tag == "CustomTScale")
         {
             m_ZoneTimeScale = other.GetComponent<CustomTimeScale>().c_Time;
+            m_Audio.pitch = m_ZoneTimeScale;
         }
     }
 }

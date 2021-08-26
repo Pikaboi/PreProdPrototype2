@@ -194,6 +194,7 @@ public class Character2D : MonoBehaviour
         if (other.tag == "CustomTScale")
         {
             m_ZoneTimeScale = other.GetComponent<CustomTimeScale>().c_Time;
+            m_Damage.pitch = m_ZoneTimeScale;
         }
     }
 
