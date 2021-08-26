@@ -27,7 +27,7 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        m_rb.velocity = m_rb.velocity * m_ZoneTimeScale;
+        m_rb.velocity = m_rb.velocity;
     }
 
     public virtual void Fire(Vector3 _Direction, float _playerSpeed, float _dir)
