@@ -51,7 +51,7 @@ public class Character2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_health >= 0)
+        if (m_health > 0)
         {
             CheckGrounded();
             ControlInputs();
