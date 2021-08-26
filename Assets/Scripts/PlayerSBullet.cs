@@ -18,6 +18,10 @@ public class PlayerSBullet : Bullet
     // Update is called once per frame
     public override void Update()
     {
+        if (m_timer == 5.0f)
+        {
+            m_Vel = m_rb.velocity;
+        }
         base.Update();
     }
 

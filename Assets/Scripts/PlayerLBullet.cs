@@ -12,14 +12,17 @@ public class PlayerLBullet : Bullet
     public override void Start()
     {
         base.Start();
-        m_timer = 5.0f;
     }
 
     // Update is called once per frame
     public override void Update()
     {
+        if (m_timer == 0.2f)
+        {
+            m_Vel = m_rb.velocity;
+        }
+
         base.Update();
-        m_rb.velocity = m_rb.velocity * m_ZoneTimeScale;
     }
 
     public override void Fire(Vector3 _Direction, float _playerSpeed, float _dir)
@@ -39,7 +42,7 @@ public class PlayerLBullet : Bullet
     {
         if (other.tag == "CustomTScale")
         {
-            if(other.GetComponent<CustomTimeScale>().c_Time < 0.0f)
+            if(other.GetComponent<CustomTimeScale>().c_Time == 0.1f)
             {
                 m_ZoneTimeScale = 1.0f;
             } else {

@@ -11,6 +11,9 @@ public class Bullet : MonoBehaviour
     public float m_ZoneTimeScale = 1.0f;
 
     public float m_timer = 0.5f;
+
+    public Vector3 m_Vel = Vector3.zero;
+
     // Start is called before the first frame update
     public virtual void Start()
     {
@@ -27,7 +30,7 @@ public class Bullet : MonoBehaviour
             Destroy(gameObject);
         }
 
-        m_rb.velocity = m_rb.velocity;
+        m_rb.velocity = m_Vel * m_ZoneTimeScale;
     }
 
     public virtual void Fire(Vector3 _Direction, float _playerSpeed, float _dir)
@@ -36,6 +39,9 @@ public class Bullet : MonoBehaviour
         m_rb.AddForce(_Direction * m_Speed, ForceMode.Impulse);
         //Add the players direction
         m_rb.AddForce(_dir * transform.right * _playerSpeed, ForceMode.Impulse);
+
+        m_Vel = m_rb.velocity;
+        Debug.Log(m_Vel);
     }
 
     public virtual void OnTriggerStay(Collider other)

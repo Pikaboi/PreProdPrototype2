@@ -5446,7 +5446,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &598921891
 Transform:
   m_ObjectHideFlags: 0
@@ -11004,8 +11004,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 10.562067, y: 6.1289635, z: 6.17}
-  m_Center: {x: 3.256034, y: 0.88948154, z: 0}
+  m_Size: {x: 15.165829, y: 6.1289635, z: 6.17}
+  m_Center: {x: 5.5579147, y: 0.88948154, z: 0}
 --- !u!4 &1359415805
 Transform:
   m_ObjectHideFlags: 0
@@ -15054,7 +15054,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9066414434439156257, guid: a33fa1faf40ba6c4e9027701f11fd449, type: 3}
       propertyPath: m_Enabled
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9066414434439156258, guid: a33fa1faf40ba6c4e9027701f11fd449, type: 3}
       propertyPath: m_Name
@@ -15062,7 +15062,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 9066414434439156258, guid: a33fa1faf40ba6c4e9027701f11fd449, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 9066414434439156259, guid: a33fa1faf40ba6c4e9027701f11fd449, type: 3}
       propertyPath: data.dataString
