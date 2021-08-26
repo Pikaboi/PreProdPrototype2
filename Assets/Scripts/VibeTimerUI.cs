@@ -7,6 +7,7 @@ public class VibeTimerUI : MonoBehaviour
 {
     Slider m_DebugVibe;
     Character2D m_player;
+    public Image m_Icon;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,5 +21,13 @@ public class VibeTimerUI : MonoBehaviour
     void Update()
     {
         m_DebugVibe.value = m_player.m_VibeTimer;
+
+        if (m_player.getVibin())
+        {
+            m_Icon.transform.Rotate(new Vector3(0.0f, 0.0f, 1.0f), 100 * Time.unscaledDeltaTime);
+        } else
+        {
+            m_Icon.transform.localRotation = Quaternion.Euler(Vector3.zero);
+        }
     }
 }

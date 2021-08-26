@@ -224,4 +224,9 @@ public class Character2D : MonoBehaviour
             m_Damage.Play();
         }
     }
+
+    public bool getVibin()
+    {
+        return m_vibin;
+    }
 }
