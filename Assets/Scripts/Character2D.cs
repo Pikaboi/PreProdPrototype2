@@ -14,6 +14,7 @@ public class Character2D : MonoBehaviour
     [SerializeField] private LayerMask m_groundMask;
     [SerializeField] private LineRenderer m_Line;
     [SerializeField] private AudioSource m_Damage;
+    [SerializeField] private AudioSource m_BGM;
     private bool m_isGrounded = false;
 
     Vector3 FireDirection = Vector3.zero;
@@ -195,6 +196,10 @@ public class Character2D : MonoBehaviour
         {
             m_ZoneTimeScale = other.GetComponent<CustomTimeScale>().c_Time;
             m_Damage.pitch = m_ZoneTimeScale;
+            if(m_BGM != null)
+            {
+                m_BGM.pitch = m_ZoneTimeScale == 1 ? 1.0f: 0.5f;
+            }
         }
     }
 
