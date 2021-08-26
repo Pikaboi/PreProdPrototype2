@@ -3,7 +3,32 @@ guid: 6f9ad27c5487b824c9f40c224b078a41
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: batter
+    second: {fileID: 2100000, guid: 2c9487328dd3879428e7b7ac0ae902ec, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: gun_trigger
+    second: {fileID: 2100000, guid: 5205e8cdc442a384991aca4457020899, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: handle
+    second: {fileID: 2100000, guid: d4a29c676d8187a46b11ba4616a74813, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lambert1
+    second: {fileID: 2100000, guid: e087df84a4a4bc243bead047ddaced7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: lazer
+    second: {fileID: 2100000, guid: cef81ee7d860eed43ad0572cb48907c3, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
