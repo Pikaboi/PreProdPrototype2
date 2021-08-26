@@ -33,6 +33,8 @@ public class PlayerLBullet : Bullet
         m_rb.AddForce(_Direction * m_Speed, ForceMode.Impulse);
         //Add the players direction
         m_rb.AddForce(_dir * transform.right * _playerSpeed, ForceMode.Impulse);
+
+        m_shootAudio.Play();
     }
 
     public void OnCollisionEnter(Collision collision)

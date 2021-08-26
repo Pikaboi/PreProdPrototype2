@@ -13,6 +13,7 @@ public class Character2D : MonoBehaviour
     [SerializeField] private float m_groundDistance = 0.2f;
     [SerializeField] private LayerMask m_groundMask;
     [SerializeField] private LineRenderer m_Line;
+    [SerializeField] private AudioSource m_Damage;
     private bool m_isGrounded = false;
 
     Vector3 FireDirection = Vector3.zero;
@@ -214,6 +215,7 @@ public class Character2D : MonoBehaviour
         if(collision.gameObject.GetComponent<EnemyBullet>() != null)
         {
             m_health--;
+            m_Damage.Play();
         }
     }
 }
