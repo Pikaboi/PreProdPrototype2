@@ -1,9 +1,34 @@
 fileFormatVersion: 2
-guid: 45f3cd7c928dca1429f4e137dd474ed7
+guid: e8aeaf5c832143f4ab17a17da0715e51
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 2100000, guid: 2981eed4571f95844aaa2f4f90b2bc90, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Mask
+    second: {fileID: 2100000, guid: 094bd1f6d2bea164486135c837f10c7a, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Pants
+    second: {fileID: 2100000, guid: e9be5ed86a3e3bb48a3a8d740fa87db8, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Shirt
+    second: {fileID: 2100000, guid: b38d70e9951dcf048bab639efecd952e, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Skin
+    second: {fileID: 2100000, guid: fcc1b821e0df5fe4abed538881c99e5c, type: 2}
   materials:
     materialImportMode: 2
     materialName: 0
