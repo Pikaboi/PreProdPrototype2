@@ -334,6 +334,14 @@ PrefabInstance:
       propertyPath: m_Name
       value: MAIN_PLAYER_GUN
       objectReference: {fileID: 0}
+    - target: {fileID: 7216655632450529714, guid: 5bb930f85b585874ea1d4b9bbb6914a3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d4a29c676d8187a46b11ba4616a74813, type: 2}
+    - target: {fileID: 7484468418975526891, guid: 5bb930f85b585874ea1d4b9bbb6914a3, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 2c9487328dd3879428e7b7ac0ae902ec, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5bb930f85b585874ea1d4b9bbb6914a3, type: 3}
 --- !u!1001 &8549569093946566910
