@@ -10,6 +10,8 @@ public class Enemy : MonoBehaviour
     public GameObject m_Player;
     public GameObject m_Aimer;
     public float m_ZoneTimeScale = 1.0f;
+    public AudioSource m_Audio;
+
 
     // Start is called before the first frame update
     public virtual void Start()
@@ -45,14 +47,17 @@ public class Enemy : MonoBehaviour
         if(collision.gameObject.GetComponent<PlayerRBullet>() != null)
         {
             m_Health -= collision.gameObject.GetComponent<PlayerRBullet>().Damage;
+            m_Audio.Play();
         }
         if (collision.gameObject.GetComponent<PlayerSBullet>() != null)
         {
             m_Health -= collision.gameObject.GetComponent<PlayerSBullet>().Damage;
+            m_Audio.Play();
         }
         if (collision.gameObject.GetComponent<PlayerLBullet>() != null)
         {
             m_Health -= collision.gameObject.GetComponent<PlayerLBullet>().Damage;
+            m_Audio.Play();
         }
     }
 
@@ -61,6 +66,7 @@ public class Enemy : MonoBehaviour
         if(other.tag == "CustomTScale")
         {
             m_ZoneTimeScale = other.GetComponent<CustomTimeScale>().c_Time;
+            m_Audio.pitch = m_ZoneTimeScale;
         }
     }
 }
