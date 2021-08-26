@@ -44,7 +44,7 @@ public class EnemyPatrol : Enemy
             Combat();
         }
 
-        m_agent.speed = baseSpeed * m_ZoneTimeScale;
+        m_agent.velocity = m_agent.desiredVelocity * m_ZoneTimeScale;
 
         base.Update();
     }
@@ -109,4 +109,5 @@ public class EnemyPatrol : Enemy
     {
         base.OnTriggerStay(other);
     }
+
 }
