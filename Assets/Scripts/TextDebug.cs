@@ -7,8 +7,10 @@ public class TextDebug : MonoBehaviour
 {
     public PlayerWeapon m_pw;
 
-    public Image m_Image;
-    public Sprite[] m_Sprites;
+    public Image m_TextImage;
+    public Sprite[] m_TextSprites;
+    public Image m_WeaponImage;
+    public Sprite[] m_WeaponSprites;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,6 +20,7 @@ public class TextDebug : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        m_Image.sprite = m_Sprites[(int)m_pw.m_BType];
+        m_TextImage.sprite = m_TextSprites[(int)m_pw.m_BType];
+        m_WeaponImage.sprite = m_WeaponSprites[(int)m_pw.m_BType];
     }
 }
