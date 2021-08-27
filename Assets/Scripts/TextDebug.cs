@@ -7,7 +7,10 @@ public class TextDebug : MonoBehaviour
 {
     public PlayerWeapon m_pw;
 
-    public TMPro.TMP_Text text;
+    public Image m_TextImage;
+    public Sprite[] m_TextSprites;
+    public Image m_WeaponImage;
+    public Sprite[] m_WeaponSprites;
     // Start is called before the first frame update
     void Start()
     {
@@ -17,6 +20,7 @@ public class TextDebug : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        text.text = m_pw.m_BType.ToString();
+        m_TextImage.sprite = m_TextSprites[(int)m_pw.m_BType];
+        m_WeaponImage.sprite = m_WeaponSprites[(int)m_pw.m_BType];
     }
 }

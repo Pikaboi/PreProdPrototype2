@@ -9,7 +9,7 @@ public class Bullet : MonoBehaviour
     public Vector3 m_Direction;
     public int Damage;
     public float m_ZoneTimeScale = 1.0f;
-
+    public AudioSource m_shootAudio;
     public float m_timer = 0.5f;
 
     public Vector3 m_Vel = Vector3.zero;
@@ -46,6 +46,7 @@ public class Bullet : MonoBehaviour
         if (other.tag == "CustomTScale")
         {
             m_ZoneTimeScale = other.GetComponent<CustomTimeScale>().c_Time;
+            m_shootAudio.pitch = m_ZoneTimeScale;
         }
     }
 }
