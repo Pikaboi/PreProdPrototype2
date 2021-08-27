@@ -29,6 +29,7 @@ public class PlayerSBullet : Bullet
     {
         //The direction
         base.Fire(_Direction, _playerSpeed, _dir);
+        m_shootAudio.Play();
     }
 
     public void OnCollisionEnter(Collision collision)

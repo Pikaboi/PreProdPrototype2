@@ -13,6 +13,8 @@ public class Character2D : MonoBehaviour
     [SerializeField] private float m_groundDistance = 0.2f;
     [SerializeField] private LayerMask m_groundMask;
     [SerializeField] private LineRenderer m_Line;
+    [SerializeField] private AudioSource m_Damage;
+    [SerializeField] private AudioSource m_BGM;
     private bool m_isGrounded = false;
 
     Vector3 FireDirection = Vector3.zero;
@@ -51,7 +53,7 @@ public class Character2D : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (m_health >= 0)
+        if (m_health > 0)
         {
             CheckGrounded();
             ControlInputs();
@@ -193,6 +195,11 @@ public class Character2D : MonoBehaviour
         if (other.tag == "CustomTScale")
         {
             m_ZoneTimeScale = other.GetComponent<CustomTimeScale>().c_Time;
+            m_Damage.pitch = m_ZoneTimeScale;
+            if(m_BGM != null)
+            {
+                m_BGM.pitch = m_ZoneTimeScale == 1 ? 1.0f: 0.5f;
+            }
         }
     }
 
@@ -214,6 +221,12 @@ public class Character2D : MonoBehaviour
         if(collision.gameObject.GetComponent<EnemyBullet>() != null)
         {
             m_health--;
+            m_Damage.Play();
         }
+    }
+
+    public bool getVibin()
+    {
+        return m_vibin;
     }
 }
