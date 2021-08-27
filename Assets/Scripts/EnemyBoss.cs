@@ -2,42 +2,55 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemySentry : Enemy
+public class EnemyBoss : Enemy
 {
+    [SerializeField] private Vector3 m_ogPos;
     [SerializeField] private GameObject m_Bullet;
-    private GameObject m_currentBullet;
     [SerializeField] private Animator m_animation;
 
-    [SerializeField] private float m_MaxShootTimer = 3.0f;
+    private GameObject m_currentBullet;
+
+    [SerializeField] private float m_MaxShootTimer = 5.0f;
 
     private float m_shootTimer = 0.0f;
 
-    private bool m_Docile = true;
+    private bool m_Patrolling = true;
+
+    private Vector3 m_currentDest;
+
+    private float baseSpeed;
 
     private bool m_Triggered = false;
 
     public override void Start()
     {
         base.Start();
+
+        m_ogPos = transform.position;
+
         m_shootTimer = m_MaxShootTimer;
+
+        baseSpeed = m_agent.speed;
     }
 
     // Update is called once per frame
     override public void Update()
     {
-        if (m_Docile)
+        if (m_Patrolling)
         {
-            DetectPlayer();
+            Patrol();
         }
         else
         {
             Combat();
         }
 
+        m_agent.velocity = m_agent.desiredVelocity * m_ZoneTimeScale;
+
         base.Update();
     }
 
-    private void DetectPlayer()
+    private void Patrol()
     {
         Collider[] collisions;
         collisions = Physics.OverlapSphere(transform.position, 10.0f);
@@ -46,8 +59,9 @@ public class EnemySentry : Enemy
         {
             if (c.GetComponent<Character2D>() != null)
             {
-                m_Docile = false;
+                m_Patrolling = false;
                 m_Player = c.gameObject;
+                m_animation.SetBool("Patrol", false);
             }
         }
 
@@ -59,11 +73,23 @@ public class EnemySentry : Enemy
 
         Lookat2D();
 
-        if(m_shootTimer < m_MaxShootTimer / 2 && !m_Triggered)
+        float posToPlayer;
+        if (m_Player.transform.position.x - transform.position.x < 0.0f)
         {
-            m_animation.SetTrigger("IsShooting");
+            posToPlayer = 1.0f;
+        }
+        else
+        {
+            posToPlayer = -1.0f;
+        }
+
+        if (m_shootTimer < 1.0f && !m_Triggered)
+        {
+            m_animation.SetTrigger("Shoot");
             m_Triggered = true;
         }
+
+        m_agent.SetDestination(m_Player.transform.position + new Vector3(5.0f, 0.0f, 0.0f) * posToPlayer);
 
         if (m_currentBullet == null && m_shootTimer < 0.0f)
         {
@@ -71,7 +97,6 @@ public class EnemySentry : Enemy
             m_currentBullet.GetComponent<EnemyBullet>().Fire(m_Aimer.transform.forward, m_agent.speed, 1.0f);
             m_shootTimer = m_MaxShootTimer;
             m_Triggered = false;
-            //m_animation.SetTrigger("IsShooting");
         }
 
     }
@@ -83,4 +108,3 @@ public class EnemySentry : Enemy
     }
 
 }
-

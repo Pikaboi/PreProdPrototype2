@@ -15,6 +15,7 @@ public class Character2D : MonoBehaviour
     [SerializeField] private LineRenderer m_Line;
     [SerializeField] private AudioSource m_Damage;
     [SerializeField] private AudioSource m_BGM;
+    [SerializeField] private Animator m_Animation;
     private bool m_isGrounded = false;
 
     Vector3 FireDirection = Vector3.zero;
@@ -87,6 +88,11 @@ public class Character2D : MonoBehaviour
                 //m_rb.velocity = new Vector3(m_rb.velocity.x, m_rb.velocity.y + (Physics.gravity.y * m_ZoneTimeScale), m_rb.velocity.z);
             }
         }
+
+        if(m_isGrounded)
+        {
+            m_Animation.SetBool("IsJumping", false);
+        }
     }
 
     void ControlInputs()
@@ -101,6 +107,15 @@ public class Character2D : MonoBehaviour
         mouseX = new Vector3(mouseX.x, mouseX.y, transform.position.z);
 
         m_rb.velocity = new Vector3(x * m_speed * m_ZoneTimeScale, m_rb.velocity.y, m_rb.velocity.z);
+
+        if(m_rb.velocity.x == 0.0f)
+        {
+            m_Animation.SetBool("IsWalking", false);
+        } else
+        {
+            m_Animation.SetBool("IsWalking", true);
+        }
+
         FireDirection = (mouseX - transform.position).normalized;
 
         //Debug.DrawLine(transform.position, transform.position + FireDirection * 10.0f, Color.red);
@@ -110,6 +125,7 @@ public class Character2D : MonoBehaviour
         //Jump
         if (Input.GetKeyDown(KeyCode.Space) && m_isGrounded)
         {
+            m_Animation.SetBool("IsJumping", true);
             m_rb.AddForce(new Vector3(0.0f, m_jump, 0.0f), ForceMode.Impulse);// * m_ZoneTimeScale
         }
 
@@ -196,7 +212,8 @@ public class Character2D : MonoBehaviour
         {
             m_ZoneTimeScale = other.GetComponent<CustomTimeScale>().c_Time;
             m_Damage.pitch = m_ZoneTimeScale;
-            if(m_BGM != null)
+            m_Animation.speed = m_ZoneTimeScale;
+            if (m_BGM != null)
             {
                 m_BGM.pitch = m_ZoneTimeScale == 1 ? 1.0f: 0.5f;
             }
