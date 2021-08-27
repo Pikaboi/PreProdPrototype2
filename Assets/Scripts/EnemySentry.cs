@@ -62,6 +62,7 @@ public class EnemySentry : Enemy
         if(m_shootTimer < m_MaxShootTimer / 2 && !m_Triggered)
         {
             m_animation.SetTrigger("IsShooting");
+            m_Triggered = true;
         }
 
         if (m_currentBullet == null && m_shootTimer < 0.0f)
@@ -69,6 +70,7 @@ public class EnemySentry : Enemy
             m_currentBullet = Instantiate(m_Bullet, transform.position + m_Aimer.transform.forward, transform.rotation);
             m_currentBullet.GetComponent<EnemyBullet>().Fire(m_Aimer.transform.forward, m_agent.speed, 1.0f);
             m_shootTimer = m_MaxShootTimer;
+            m_Triggered = false;
             //m_animation.SetTrigger("IsShooting");
         }
 
