@@ -1,27 +1,12 @@
 fileFormatVersion: 2
-guid: b566749fb5181cb4d9b4560bdde03473
+guid: c32914d0d5810364ca7b51932d950d47
 ModelImporter:
   serializedVersion: 20200
   internalIDToNameTable:
   - first:
       74: 1827226128182048838
     second: Take 001
-  externalObjects:
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: eyes
-    second: {fileID: 2100000, guid: 2981eed4571f95844aaa2f4f90b2bc90, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: lambert1
-    second: {fileID: 2100000, guid: b38d70e9951dcf048bab639efecd952e, type: 2}
-  - first:
-      type: UnityEngine:Material
-      assembly: UnityEngine.CoreModule
-      name: pants
-    second: {fileID: 2100000, guid: e9be5ed86a3e3bb48a3a8d740fa87db8, type: 2}
+  externalObjects: {}
   materials:
     materialImportMode: 2
     materialName: 0
