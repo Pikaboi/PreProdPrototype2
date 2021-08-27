@@ -7,6 +7,7 @@ public class EnemyPatrol : Enemy
     [SerializeField] private Transform m_patrol;
     [SerializeField] private Vector3 m_ogPos;
     [SerializeField] private GameObject m_Bullet;
+    [SerializeField] private Animator m_animation;
 
     private GameObject m_currentBullet;
 
@@ -101,6 +102,7 @@ public class EnemyPatrol : Enemy
             m_currentBullet = Instantiate(m_Bullet, transform.position + m_Aimer.transform.forward, transform.rotation);
             m_currentBullet.GetComponent<EnemyBullet>().Fire(m_Aimer.transform.forward, m_agent.speed, 1.0f);
             m_shootTimer = 1.5f;
+            m_animation.SetTrigger("Shoot");
         }
 
     }
