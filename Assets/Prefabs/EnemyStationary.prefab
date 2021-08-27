@@ -112,7 +112,8 @@ MonoBehaviour:
   m_ZoneTimeScale: 1
   m_Audio: {fileID: 6734069113200440527}
   m_Bullet: {fileID: 6771049513954368809, guid: e345ccd308ad1f44387631b71deeba3b, type: 3}
-  m_MaxShootTimer: 1.5
+  m_animation: {fileID: 8179871759125114474}
+  m_MaxShootTimer: 3
 --- !u!54 &3618217934663667905
 Rigidbody:
   m_ObjectHideFlags: 0

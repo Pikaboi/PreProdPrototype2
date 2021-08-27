@@ -212,7 +212,8 @@ public class Character2D : MonoBehaviour
         {
             m_ZoneTimeScale = other.GetComponent<CustomTimeScale>().c_Time;
             m_Damage.pitch = m_ZoneTimeScale;
-            if(m_BGM != null)
+            m_Animation.speed = m_ZoneTimeScale;
+            if (m_BGM != null)
             {
                 m_BGM.pitch = m_ZoneTimeScale == 1 ? 1.0f: 0.5f;
             }
