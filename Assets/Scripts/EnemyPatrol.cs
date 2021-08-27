@@ -11,7 +11,7 @@ public class EnemyPatrol : Enemy
 
     private GameObject m_currentBullet;
 
-    [SerializeField] private float m_MaxShootTimer = 1.5f;
+    [SerializeField] private float m_MaxShootTimer = 5.0f;
 
     private float m_shootTimer = 0.0f;
 
@@ -20,6 +20,8 @@ public class EnemyPatrol : Enemy
     private Vector3 m_currentDest;
 
     private float baseSpeed;
+
+    private bool m_Triggered = false;
 
     public override void Start()
     {
@@ -95,14 +97,20 @@ public class EnemyPatrol : Enemy
             posToPlayer = -1.0f;
         }
 
+        if (m_shootTimer < 1.5f && !m_Triggered)
+        {
+            m_animation.SetTrigger("Shoot");
+            m_Triggered = true;
+        }
+
         m_agent.SetDestination(m_Player.transform.position + new Vector3(5.0f, 0.0f, 0.0f) * posToPlayer);
 
         if(m_currentBullet == null && m_shootTimer < 0.0f)
         {
             m_currentBullet = Instantiate(m_Bullet, transform.position + m_Aimer.transform.forward, transform.rotation);
             m_currentBullet.GetComponent<EnemyBullet>().Fire(m_Aimer.transform.forward, m_agent.speed, 1.0f);
-            m_shootTimer = 1.5f;
-            m_animation.SetTrigger("Shoot");
+            m_shootTimer = m_MaxShootTimer;
+            m_Triggered = false;
         }
 
     }
@@ -110,6 +118,7 @@ public class EnemyPatrol : Enemy
     public override void OnTriggerStay(Collider other)
     {
         base.OnTriggerStay(other);
+        m_animation.speed = m_ZoneTimeScale;
     }
 
 }
