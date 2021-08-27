@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4863085705807188287}
   - component: {fileID: 4863085705807188282}
   - component: {fileID: 4863085705807188283}
-  - component: {fileID: 4863085705807188280}
   - component: {fileID: 5823832218515729291}
   - component: {fileID: 1372906519806084329}
+  - component: {fileID: 5933828206903693397}
   m_Layer: 0
   m_Name: Boss
   m_TagString: Untagged
@@ -74,29 +74,6 @@ NavMeshAgent:
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
   m_ObstacleAvoidanceType: 4
---- !u!114 &4863085705807188280
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4863085705807188281}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 981a7b04df3e2b8498e3746ed19379f3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_agent: {fileID: 0}
-  m_Health: 10
-  m_Player: {fileID: 0}
-  m_Aimer: {fileID: 4863085706694686040}
-  m_ZoneTimeScale: 1
-  m_Audio: {fileID: 1372906519806084329}
-  m_patrol: {fileID: 0}
-  m_ogPos: {x: 0, y: 0, z: 0}
-  m_Bullet: {fileID: 6771049513954368809, guid: e345ccd308ad1f44387631b71deeba3b, type: 3}
-  m_animation: {fileID: 0}
-  m_MaxShootTimer: 5
 --- !u!54 &5823832218515729291
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -209,6 +186,28 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &5933828206903693397
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4863085705807188281}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8332031ac313ec43a2d18d689f08ed3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_agent: {fileID: 0}
+  m_Health: 20
+  m_Player: {fileID: 0}
+  m_Aimer: {fileID: 4863085706694686040}
+  m_ZoneTimeScale: 1
+  m_Audio: {fileID: 1372906519806084329}
+  m_ogPos: {x: 0, y: 0, z: 0}
+  m_Bullet: {fileID: 6771049513954368809, guid: e345ccd308ad1f44387631b71deeba3b, type: 3}
+  m_animation: {fileID: 6564146475286810440}
+  m_MaxShootTimer: 5
 --- !u!1 &4863085706694686040
 GameObject:
   m_ObjectHideFlags: 0
