@@ -240,6 +240,7 @@ MonoBehaviour:
   m_Damage: {fileID: 4219755795482452185}
   m_BGM: {fileID: 0}
   m_Animation: {fileID: 2466947729438883130}
+  m_body: {fileID: 1249996910511195129}
   m_BulletInstance: {fileID: 6771049513954368809, guid: 4645445351e9cb54a81ddd9b82bbf244, type: 3}
   m_VibeTimer: 30
 --- !u!114 &1764648291

@@ -18,6 +18,8 @@ public class Character2D : MonoBehaviour
     [SerializeField] private Animator m_Animation;
     private bool m_isGrounded = false;
 
+    [SerializeField] private Transform m_body;
+
     Vector3 FireDirection = Vector3.zero;
 
     private RaycastHit hitInfo;
@@ -105,6 +107,14 @@ public class Character2D : MonoBehaviour
 
         mouseX = Camera.main.ScreenToWorldPoint(new Vector3(mouseX.x, mouseX.y, 4.041f));
         mouseX = new Vector3(mouseX.x, mouseX.y, transform.position.z);
+
+        if(mouseX.x < transform.position.x)
+        {
+            m_body.rotation = Quaternion.Euler(0.0f, 270.0f, 0.0f);
+        } else
+        {
+            m_body.rotation = Quaternion.Euler(0.0f, 90.0f, 0.0f);
+        }
 
         m_rb.velocity = new Vector3(x * m_speed * m_ZoneTimeScale, m_rb.velocity.y, m_rb.velocity.z);
 
