@@ -19632,8 +19632,8 @@ MonoBehaviour:
       enableFptlForForwardOpaque: 0
       enableBigTilePrepass: 0
       isFptlEnabled: 0
-  clearColorMode: 2
-  backgroundColorHDR: {r: 0, g: 0, b: 0, a: 0}
+  clearColorMode: 1
+  backgroundColorHDR: {r: 0, g: 0, b: 0, a: 1}
   clearDepth: 1
   volumeLayerMask:
     serializedVersion: 2
@@ -37812,8 +37812,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1697526477}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -38.918457, y: -8.020509, z: 86.36174}
-  m_LocalScale: {x: 19.692814, y: 0.27628, z: 5.719339}
+  m_LocalPosition: {x: -38.918457, y: -17.1067, z: 86.36174}
+  m_LocalScale: {x: 19.692814, y: 9.362438, z: 5.719339}
   m_Children: []
   m_Father: {fileID: 1871016774}
   m_RootOrder: 15
@@ -47977,7 +47977,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh31200
+  m_Name: pb_Mesh23700
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
