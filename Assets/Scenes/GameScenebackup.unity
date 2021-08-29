@@ -8966,6 +8966,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2012872289}
     - target: {fileID: 5260213278030911314, guid: 1a6105bc2504ea7419ac4bf9cad3da11, type: 3}
+      propertyPath: m_body
+      value: 
+      objectReference: {fileID: 1513205203}
+    - target: {fileID: 5260213278030911314, guid: 1a6105bc2504ea7419ac4bf9cad3da11, type: 3}
       propertyPath: m_Animation
       value: 
       objectReference: {fileID: 1360747168}
@@ -12388,6 +12392,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!4 &1513205203 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1249996910511195129, guid: 1a6105bc2504ea7419ac4bf9cad3da11, type: 3}
+  m_PrefabInstance: {fileID: 1108160501}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1516245426
 GameObject:
   m_ObjectHideFlags: 0
